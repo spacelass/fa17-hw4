@@ -1,0 +1,64 @@
+<br> Home Page <br>
+
+<h1>Cats</h1>
+ 
+<table>
+  <tr>
+    <th>Cat name</th>
+  </tr>
+ 
+<% @cats.each do |cat| %>
+  <tr>
+    <td><%= cat.name %></td>
+  </tr>
+<% end %>
+</table>
+ 
+<br>
+
+<h1>Users</h1>
+ 
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Age</th>
+  </tr>
+ 
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.username %></td>
+    <td><%= user.email %></td>
+    <td><%= user.age %></td>
+  </tr>
+<% end %>
+</table>
+ 
+<br>
+
+<h1>Todo Tasks</h1>
+ 
+<table>
+  <tr>
+    <th>Task name</th>
+    <th>Due date</th>
+  </tr>
+ 
+<% @todos.each do |todo| %>
+  <tr>
+    <td><%= todo.name %></td>
+    <td><%= todo.date %></td>
+  </tr>
+<% end %>
+</table>
+
+<br>
+
+<h1>New Todo Task<h1>
+<table>
+<%= form_for @newtodo, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_field :date %>
+  <%= f.submit "Add new Todo task" %>
+
+<% end %>
